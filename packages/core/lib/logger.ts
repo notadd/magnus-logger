@@ -31,6 +31,7 @@ export abstract class Logger {
      * 保存
      */
     abstract save(): Promise<void>;
+    abstract create(): Promise<Logger>;
 }
 export abstract class LoggerFactory {
     constructor(public readonly name: string) { }
