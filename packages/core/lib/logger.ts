@@ -31,6 +31,9 @@ export abstract class Logger {
      * 保存
      */
     abstract save(): Promise<void>;
+    /**
+     * 创建下一个logger
+     */
     abstract create(): Promise<Logger>;
 }
 export abstract class LoggerFactory {
