@@ -5,6 +5,7 @@ export class Logger {
     hash: string;
     private params: any;
     private result: any;
+    private level: 'warning' | 'info' | 'error';
     constructor(requestId: string, serviceName: string, pre?: string) {
         this.requestId = requestId;
         this.pre = pre;
