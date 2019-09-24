@@ -19,13 +19,14 @@ export abstract class LoggerRequest {
      * 创建request id
      */
     abstract createRequestId(): Promise<string>;
+
+}
+export abstract class LoggerRequestFactory {
     /**
      * 根据requestId拿Request
      * @param requestId 
      */
     abstract getRequestById(requestId: string): LoggerRequest;
-}
-export abstract class LoggerRequestFactory {
     /**
      * 创建request
      * @param headers 
