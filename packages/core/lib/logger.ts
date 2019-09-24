@@ -12,14 +12,20 @@ export abstract class Logger {
         this.pre = pre;
         this.serviceName = serviceName;
     }
-    setResult(params: any) {
+    info(params: any, result: any) {
+        this.level = 'info';
         this.params = params;
-    }
-    setParams(result: any) {
         this.result = result;
     }
-    setLevel(level: LoggerLevel) {
-        this.level = level;
+    warning(params: any, result: any) {
+        this.level = 'warning';
+        this.params = params;
+        this.result = result;
+    }
+    error(params: any, result: any) {
+        this.level = 'error';
+        this.params = params;
+        this.result = result;
     }
     /**
      * 保存
