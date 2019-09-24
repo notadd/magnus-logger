@@ -1,6 +1,9 @@
-export class LoggerRequest {
+export abstract class LoggerRequest {
     readonly headers: any;
     readonly host: string;
+    /**
+     * 结果
+     */
     private result: any;
     get isFinish(): boolean {
         return !!this.result;
@@ -9,15 +12,24 @@ export class LoggerRequest {
         this.headers = headers;
         this.host = host;
     }
-    async getRequestId(): Promise<string> {
-        return ``
-    }
     setResult(result: any) {
         this.result = result;
     }
+    /**
+     * 创建request id
+     */
+    abstract createRequestId(): Promise<string>;
+    /**
+     * 根据requestId拿Request
+     * @param requestId 
+     */
+    abstract getRequestById(requestId: string): LoggerRequest;
 }
-export class LoggerRequestFactory {
-    static create(headers: any, host: string): LoggerRequest {
-        return new LoggerRequest(headers, host)
-    }
+export abstract class LoggerRequestFactory {
+    /**
+     * 创建request
+     * @param headers 
+     * @param host 
+     */
+    abstract create(headers: any, host: string): LoggerRequest;
 }
